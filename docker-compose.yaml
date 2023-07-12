@@ -1,0 +1,15 @@
+version: "3.4"
+
+services:
+  vscode-tunnel:
+    image: standardcore/vscode-tunnel:latest
+    container_name: vscode-tunnel
+    environment:
+      PUID:      "1001"
+      PGID:      "100"
+      UMASK_SET: "022"
+      TZ:        "Asia/Shanghai"
+    volumes:
+      - /share/caching/vscode-tunnel/data:/etc/vscode-tunnel/data
+      - /share/caching/vscode-tunnel/source:/home/coder/source
+      - /share/caching/transcodes:/home/coder/transcodes
